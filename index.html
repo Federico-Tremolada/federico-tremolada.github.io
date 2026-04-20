@@ -1,441 +1,510 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Federico Tremolada | Biomedical Engineer</title>
-  <title>Federico Tremolada | GitHub-style Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>[IL TUO NOME] — Biomedical Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      box-sizing: border-box;
     :root {
       --bg: #0d1117;
-      --panel: #161b22;
+      --surface: #161b22;
       --border: #30363d;
-      --text: #c9d1d9;
+      --text: #e6edf3;
       --muted: #8b949e;
-      --title: #f0f6fc;
       --accent: #58a6ff;
-      --green-1: #0e4429;
-      --green-2: #006d32;
-      --green-3: #26a641;
-      --green-4: #39d353;
+      --accent2: #3fb950;
+      --tag-bg: #21262d;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      line-height: 1.6;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.45;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 48px 24px;
-    .page {
-      width: min(1200px, 94%);
-      margin: 26px auto 48px;
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 24px;
+      align-items: start;
     }
 
-    .hero {
-      padding: 40px 0 24px 0;
-      border-bottom: 1px solid #334155;
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-    }
+    /* ── SIDEBAR ── */
+    .sidebar {}
 
-    .hero h1 {
-      font-size: 42px;
-      margin: 0 0 12px 0;
-    .avatar {
-      width: 100%;
-      aspect-ratio: 1;
+    .avatar-wrap {
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #323b47 0%, #1d2430 40%, #111822 100%);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-      color: var(--muted);
-      font-size: 14px;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      color: #cbd5e1;
-      margin: 0 0 20px 0;
-    h1, h2, h3, p { margin: 0; }
-
-    .name { font-size: 28px; color: var(--title); margin-top: 14px; }
-    .username { font-size: 21px; color: var(--muted); margin-bottom: 3px; }
-    .bio { margin-top: 14px; font-size: 17px; }
-
-    .btn {
-      margin: 16px 0;
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: #21262d;
-      color: var(--text);
-      padding: 10px 12px;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .links a {
-      display: inline-block;
-      margin-right: 18px;
-      margin-bottom: 10px;
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .meta { color: var(--muted); font-size: 14px; display: grid; gap: 8px; }
-    .meta strong { color: var(--text); }
-
-    h2 {
-      margin-top: 44px;
+      overflow: hidden;
+      border: 2px solid var(--border);
       margin-bottom: 16px;
-      color: #38bdf8;
-      font-size: 28px;
-    .section-title {
-      color: var(--title);
+    }
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Placeholder se non hai ancora la foto */
+    .avatar-placeholder {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      text-align: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .avatar-placeholder span { font-size: 32px; }
+
+    .name {
+      font-family: 'Space Mono', monospace;
       font-size: 22px;
-      margin-bottom: 14px;
-    }
-
-    .card {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 14px;
-      padding: 24px;
-      margin-top: 16px;
-    .hero-title {
-      font-size: 34px;
-      line-height: 1.15;
-      color: var(--title);
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: #f8fafc;
-    .hero-sub { color: var(--muted); margin-bottom: 16px; }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-    .chip {
-      border: 1px solid var(--border);
-      background: #21262d;
-      border-radius: 999px;
-      font-size: 13px;
+      font-weight: 700;
       color: var(--text);
-      padding: 5px 10px;
+      margin-bottom: 2px;
+    }
+    .handle {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
     }
 
-    .muted {
-      color: #cbd5e1;
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+    .bio {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
     }
 
-    ul {
-      padding-left: 22px;
-    .repo {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
-      background: #0f1520;
-      min-height: 145px;
+    .meta {
       display: flex;
       flex-direction: column;
       gap: 8px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    .repo a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    .repo p { color: var(--muted); font-size: 14px; }
-
-    .repo-meta {
-      margin-top: auto;
       font-size: 13px;
       color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .meta-row { display: flex; align-items: center; gap: 8px; }
+    .meta-row svg { flex-shrink: 0; }
+
+    .stats-row {
       display: flex;
       gap: 12px;
-      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-row b { color: var(--text); }
+
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
 
-    .tag {
-    .dot {
-      width: 10px;
-      height: 10px;
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .skill-tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 12px;
+      color: var(--accent);
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ── MAIN ── */
+    .main {}
+
+    /* README banner */
+    .readme-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .readme-header {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .readme-header b { color: var(--accent); }
+    .readme-body { padding: 24px; }
+    .readme-body h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .readme-body p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .readme-body p b { color: var(--text); }
+
+    /* Highlight strip inside README */
+    .highlight-strip {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .hl-item {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-family: 'Space Mono', monospace;
+    }
+    .hl-item .hl-label { color: var(--muted); }
+    .hl-item .hl-val { color: var(--accent2); font-weight: 700; }
+
+    /* Projects grid */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .section-header h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .section-header a {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color .2s;
+    }
+    .project-card:hover { border-color: var(--accent); }
+    .project-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .project-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .project-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .lang-dot {
+      width: 10px; height: 10px;
       border-radius: 50%;
       display: inline-block;
-      background: #334155;
-      color: #e2e8f0;
-      padding: 8px 12px;
-      border-radius: 999px;
-      margin: 6px 8px 0 0;
-      font-size: 14px;
-      margin-right: 6px;
-      background: #f1e05a;
     }
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
+    /* Contributions bar (decorativo) */
+    .contrib-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .contrib-section p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-family: 'Space Mono', monospace;
+    }
     .contrib-grid {
-      margin-top: 12px;
-      display: grid;
-      grid-template-columns: repeat(26, 1fr);
-      gap: 5px;
+      display: flex;
+      gap: 3px;
+      flex-wrap: wrap;
     }
-
-    .footer {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid #334155;
-      color: #94a3b8;
-      font-size: 14px;
-    .cell {
-      width: 100%;
-      aspect-ratio: 1;
+    .contrib-cell {
+      width: 12px; height: 12px;
       border-radius: 2px;
-      background: #161b22;
-      border: 1px solid #1b2330;
+      background: var(--tag-bg);
     }
+    .contrib-cell.l1 { background: #0e4429; }
+    .contrib-cell.l2 { background: #006d32; }
+    .contrib-cell.l3 { background: #26a641; }
+    .contrib-cell.l4 { background: #39d353; }
 
-    @media (max-width: 800px) {
-      .grid {
-    .l1 { background: var(--green-1); }
-    .l2 { background: var(--green-2); }
-    .l3 { background: var(--green-3); }
-    .l4 { background: var(--green-4); }
+    /* Contact */
+    .contact-strip {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      transition: border-color .2s, color .2s;
+    }
+    .contact-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    .footer-note { margin-top: 10px; font-size: 13px; color: var(--muted); }
-
-    @media (max-width: 940px) {
-      .page {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 720px) {
+      .layout { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .avatar-placeholder, .avatar-wrap { width: 140px; height: 140px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="layout">
 
-    <section class="hero">
-      <h1>Federico Tremolada</h1>
-      <p>
-        Biomedical Engineer focused on biomechanics, finite element modeling,
-        and engineering analysis for musculoskeletal systems and medical-device-oriented applications.
-      </p>
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
 
-      <div class="links">
-        <a href="https://github.com/Federico-Tremolada" target="_blank">GitHub</a>
-        <a href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank">Main Project</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Featured Project</h2>
-
-      <div class="card">
-        <h3>Enthesis FEM Model — Stress and Energy Distribution in Functionally Graded Interfaces</h3>
-
-        <p class="muted">
-          A finite element study of the tendon-to-bone interface (enthesis),
-          developed to investigate how different material transition laws affect
-          stress transfer and elastic energy distribution.
-        </p>
-
-        <ul>
-          <li><strong>Problem:</strong> sharp material transitions generate stress concentrations and may reduce structural efficiency.</li>
-          <li><strong>Method:</strong> 2D FEM models developed in Abaqus and compared across sharp, linear, exponential, and power-law material gradients.</li>
-          <li><strong>Post-processing:</strong> Python and MATLAB workflows used to extract S11 profiles, von Mises stress, and elastic energy indicators.</li>
-          <li><strong>Main result:</strong> functionally graded configurations reduced stress concentration compared with the sharp interface, with power-law solutions emerging as the most effective compromise.</li>
-        </ul>
-
-        <p>
-          <a href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank">
-            View repository →
-          </a>
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Technical Profile</h2>
-
-      <div class="card">
-        <span class="tag">Biomechanics</span>
-        <span class="tag">Finite Element Modeling</span>
-        <span class="tag">Abaqus</span>
-        <span class="tag">Python</span>
-        <span class="tag">MATLAB</span>
-        <span class="tag">Data Analysis</span>
-        <span class="tag">Biomedical Engineering</span>
-      </div>
-    </section>
-  <main class="page">
-    <aside>
-      <section class="panel">
-        <div class="avatar">Aggiungi qui la tua foto profilo</div>
-        <h1 class="name">Federico Tremolada</h1>
-        <p class="username">@Federico-Tremolada</p>
-        <p class="bio">Biomedical Engineer • FEM • Biomechanics</p>
-        <div class="btn">Contatta</div>
-        <div class="meta">
-          <div><strong>Location:</strong> Milano, Italia</div>
-          <div><strong>Università:</strong> Politecnico di Milano</div>
-          <div><strong>Email:</strong> aggiorna-con-la-tua-email@example.com</div>
-          <div><strong>GitHub:</strong> <a href="https://github.com/Federico-Tremolada" target="_blank" rel="noopener">profilo</a></div>
-        </div>
-      </section>
-    </aside>
-
-    <section>
-      <h2>About</h2>
-
-      <div class="card">
-        <p>
-          I am an MSc Biomedical Engineering student at Politecnico di Milano with a growing interest in
-          biomechanical modeling, simulation-based design, and technical analysis for medical and bio-inspired systems.
-      <article class="panel">
-        <h2 class="hero-title">Ciao, sono Federico 👋</h2>
-        <p class="hero-sub">
-          Realizzo progetti di modellazione biomeccanica e analisi numerica, con focus su
-          interfacce muscolo-scheletriche, simulazioni FEM e interpretazione dei risultati.
-        </p>
-
-        <p>
-          My current work focuses on building practical engineering projects that combine modeling, computation,
-          and interpretation of physically meaningful results.
-          Questa pagina è pensata in stile GitHub Profile: puoi aggiornarla rapidamente con i tuoi
-          repository, risultati e link professionali.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Next Projects</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Biomechanical Data Analysis</h3>
-          <p class="muted">
-            Signal processing and interpretation of mechanical testing data using MATLAB and Python.
-          </p>
-        <div class="chips">
-          <span class="chip">Abaqus</span>
-          <span class="chip">MATLAB</span>
-          <span class="chip">Python</span>
-          <span class="chip">Biomechanics</span>
-          <span class="chip">Finite Element Modeling</span>
-        </div>
-
-        <div class="card">
-          <h3>Additive Manufacturing Testing</h3>
-          <p class="muted">
-            Mechanical characterization and fatigue-oriented analysis of 3D-printed biomaterials.
-          </p>
-      </article>
-
-      <article class="panel" style="margin-top: 16px;">
-        <h2 class="section-title">Progetti in evidenza</h2>
-        <div class="project-grid">
-          <div class="repo">
-            <a href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank" rel="noopener">enthesis-fem-model</a>
-            <p>
-              Studio FEM dell'interfaccia tendine-osso con materiali a gradiente funzionale e
-              confronto tra leggi di transizione (sharp, linear, exponential, power-law).
-            </p>
-            <div class="repo-meta"><span><span class="dot" style="background:#3572A5;"></span>Python</span><span>★ da aggiornare</span></div>
-          </div>
-
-          <div class="repo">
-            <a href="#">biomechanics-data-analysis</a>
-            <p>
-              Pipeline per post-processing di dati meccanici: estrazione feature, confronto curve
-              stress-strain e report automatici.
-            </p>
-            <div class="repo-meta"><span><span class="dot" style="background:#e16737;"></span>MATLAB</span><span>🚧 in sviluppo</span></div>
-          </div>
-
-          <div class="repo">
-            <a href="#">additive-biomaterials-testing</a>
-            <p>
-              Analisi sperimentale su materiali biomedicali stampati in 3D con test meccanici e
-              studio preliminare a fatica.
-            </p>
-            <div class="repo-meta"><span><span class="dot" style="background:#701516;"></span>Research</span><span>📄 work in progress</span></div>
-          </div>
-
-          <div class="repo">
-            <a href="#">portfolio-notes</a>
-            <p>
-              Raccolta di note tecniche, metodi, assunzioni di modello e mini-progetti da integrare
-              nei repository pubblici.
-            </p>
-            <div class="repo-meta"><span><span class="dot" style="background:#89e051;"></span>Markdown</span><span>✍️ continuo</span></div>
-          </div>
-        </div>
-      </div>
-      </article>
-
-      <article class="panel" style="margin-top: 16px;">
-        <h2 class="section-title">Contributi (demo visuale)</h2>
-        <p class="hero-sub">Griglia in stile GitHub: sostituisci con dati reali se vuoi integrare API o immagini SVG.</p>
-        <div class="contrib-grid" aria-label="contributions heatmap demo">
-          <span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span>
-          <span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span>
-          <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
-          <span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l4"></span>
-        </div>
-        <p class="footer-note">Tip: puoi collegare un generatore di contribution graph SVG per mostrare i contributi reali.</p>
-      </article>
-    </section>
-
-    <div class="footer">
-      Built with GitHub Pages.
+    <!-- FOTO PROFILO: sostituisci src con il link alla tua foto -->
+    <!-- <div class="avatar-wrap"><img src="foto.jpg" alt="foto"/></div> -->
+    <div class="avatar-placeholder">
+      <span>🧬</span>
+      [LA TUA FOTO<br>PROFILO]
     </div>
 
-  </div>
+    <div class="name">[NOME COGNOME]</div>
+    <div class="handle">[username GitHub] · he/him</div>
+
+    <div class="bio">
+      <!-- Una frase che ti descrive. Es: "Biomedical engineering student @ PoliMi. Interested in structural analysis and medical devices." -->
+      [UNA FRASE CHE TI DESCRIVE — es. "Biomedical eng. student @ PoliMi. Focus on structural mechanics &amp; medical devices."]
+    </div>
+
+    <div class="meta">
+      <div class="meta-row">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88l6.5-3.81Z"/></svg>
+        [LA TUA EMAIL o link]
+      </div>
+      <div class="meta-row">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 2 2 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a2 2 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 2 2 0 0 0-2.83 0l-2.5 2.5a2.002 2.002 0 0 0 0 2.83Z"/></svg>
+        [LINK LINKEDIN o portfolio Notion]
+      </div>
+      <div class="meta-row">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0A6.5 6.5 0 0 0 1.5 8Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"/></svg>
+        Politecnico di Milano — LM Biomeccanica
+      </div>
+      <div class="meta-row">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        [LA TUA CITTÀ]
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <span><b>[N]</b> follower</span>
+      <span><b>[N]</b> following</span>
+    </div>
+
+    <div class="section-title">Competenze tecniche</div>
+    <div class="skill-list">
+      <!-- Aggiungi/rimuovi i tuoi software e tool -->
+      <span class="skill-tag">ANSYS</span>
+      <span class="skill-tag">Abaqus</span>
+      <span class="skill-tag">SolidWorks</span>
+      <span class="skill-tag">MATLAB</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">FEA</span>
+      <span class="skill-tag">ISO 13485</span>
+      <span class="skill-tag">EU MDR</span>
+      <span class="skill-tag">[ALTRO]</span>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <!-- README card -->
+    <div class="readme-card">
+      <div class="readme-header">
+        📄 <b>[TUO USERNAME]</b> / README.md
+      </div>
+      <div class="readme-body">
+        <h2>👋 Ciao, sono [NOME]</h2>
+        <p>
+          <!-- Descrizione estesa di te: cosa studi, cosa ti interessa, dove vuoi andare -->
+          [PRESENTAZIONE ESTESA — es. "Sono uno studente magistrale in Biomeccanica e Biomateriali al Politecnico di Milano. Mi occupo di analisi strutturale di dispositivi medici, modellazione FEM e materiali per applicazioni ortopediche."]
+        </p>
+        <p>
+          <!-- Obiettivo professionale -->
+          [OBIETTIVO — es. "Sto cercando opportunità in R&D o ingegneria regolatorio nel settore medtech. Disponibile per tesi in azienda o stage."]
+        </p>
+
+        <div class="highlight-strip">
+          <div class="hl-item">
+            <div class="hl-label">📍 Università</div>
+            <div class="hl-val">PoliMi</div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-label">🎓 Corso</div>
+            <div class="hl-val">LM Biomeccanica</div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-label">🔬 Area</div>
+            <div class="hl-val">[ES: Ortopedia / Cardiovascolare]</div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-label">📅 Grad.</div>
+            <div class="hl-val">[ANNO PREVISTO]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progetti -->
+    <div class="section-header">
+      <h3>📌 Progetti in evidenza</h3>
+      <a href="[LINK REPOSITORY]">Vedi tutti →</a>
+    </div>
+    <div class="projects-grid">
+
+      <!-- PROGETTO 1 -->
+      <div class="project-card">
+        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 1]</a>
+        <p class="project-desc">
+          <!-- Es: "Analisi FEM di un fissatore spinale con Abaqus. Studio dei momenti flettenti e torcenti su struttura 3D multi-segmento." -->
+          [DESCRIZIONE BREVE — cosa hai fatto, con quale tool, per quale scopo]
+        </p>
+        <div class="project-footer">
+          <span class="lang-dot" style="background:#2b7489"></span>
+          [SOFTWARE / LINGUAGGIO — es. Abaqus / MATLAB]
+        </div>
+      </div>
+
+      <!-- PROGETTO 2 -->
+      <div class="project-card">
+        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 2]</a>
+        <p class="project-desc">
+          [DESCRIZIONE BREVE]
+        </p>
+        <div class="project-footer">
+          <span class="lang-dot" style="background:#e34c26"></span>
+          [SOFTWARE / LINGUAGGIO]
+        </div>
+      </div>
+
+      <!-- PROGETTO 3 -->
+      <div class="project-card">
+        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 3]</a>
+        <p class="project-desc">
+          [DESCRIZIONE BREVE]
+        </p>
+        <div class="project-footer">
+          <span class="lang-dot" style="background:#3572A5"></span>
+          [SOFTWARE / LINGUAGGIO]
+        </div>
+      </div>
+
+      <!-- PROGETTO 4 -->
+      <div class="project-card">
+        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 4]</a>
+        <p class="project-desc">
+          [DESCRIZIONE BREVE]
+        </p>
+        <div class="project-footer">
+          <span class="lang-dot" style="background:#f1e05a"></span>
+          [SOFTWARE / LINGUAGGIO]
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contribuzioni decorative -->
+    <div class="contrib-section">
+      <p>[N] contribuzioni nell'ultimo anno</p>
+      <div class="contrib-grid" id="grid"></div>
+    </div>
+
+    <!-- Contatti -->
+    <div class="section-header">
+      <h3>📬 Contatti</h3>
+    </div>
+    <div class="contact-strip">
+      <a class="contact-btn" href="mailto:[TUA EMAIL]">✉️ Email</a>
+      <a class="contact-btn" href="[LINK LINKEDIN]" target="_blank">💼 LinkedIn</a>
+      <a class="contact-btn" href="[LINK NOTION/PORTFOLIO]" target="_blank">📋 Portfolio</a>
+      <!-- Aggiungi altri link se vuoi (ResearchGate, Kaggle, ecc.) -->
+    </div>
+
   </main>
+</div>
+
+<script>
+  // Genera griglia contribuzioni casuale (decorativa)
+  const grid = document.getElementById('grid');
+  const levels = ['','l1','l2','l3','l4'];
+  for (let i = 0; i < 364; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'contrib-cell ' + levels[Math.floor(Math.random()*5)];
+    grid.appendChild(cell);
+  }
+</script>
 </body>
 </html>
