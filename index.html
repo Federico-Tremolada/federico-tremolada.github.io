@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Federico Tremolada — Biomedical Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --bg: #0d1117;
@@ -17,7 +17,11 @@
       --tag-bg: #21262d;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       background: var(--bg);
@@ -36,23 +40,8 @@
       align-items: start;
     }
 
-    /* ── SIDEBAR ── */
     .sidebar {}
 
-    .avatar-wrap {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid var(--border);
-      margin-bottom: 16px;
-    }
-    .avatar-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* Placeholder se non hai ancora la foto */
     .avatar-placeholder {
       width: 220px;
       height: 220px;
@@ -70,7 +59,21 @@
       gap: 6px;
       margin-bottom: 16px;
     }
-    .avatar-placeholder span { font-size: 32px; }
+
+    .avatar-wrap {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .name {
       font-family: 'Space Mono', monospace;
@@ -79,6 +82,7 @@
       color: var(--text);
       margin-bottom: 2px;
     }
+
     .handle {
       font-family: 'Space Mono', monospace;
       font-size: 14px;
@@ -101,21 +105,28 @@
       gap: 8px;
       font-size: 13px;
       color: var(--muted);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
-    .meta-row { display: flex; align-items: center; gap: 8px; }
-    .meta-row svg { flex-shrink: 0; }
 
-    .stats-row {
+    .meta-row {
       display: flex;
-      gap: 12px;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
+      align-items: center;
+      gap: 8px;
+      line-height: 1.5;
     }
-    .stats-row b { color: var(--text); }
+
+    .meta-row svg {
+      flex-shrink: 0;
+    }
+
+    .meta-row a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .meta-row a:hover {
+      color: var(--accent);
+    }
 
     .section-title {
       font-family: 'Space Mono', monospace;
@@ -133,27 +144,32 @@
       gap: 6px;
       margin-bottom: 20px;
     }
+
     .skill-tag {
       background: var(--tag-bg);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 3px 10px;
+      padding: 4px 10px;
       font-size: 12px;
       color: var(--accent);
       font-family: 'Space Mono', monospace;
     }
 
-    /* ── MAIN ── */
     .main {}
 
-    /* README banner */
-    .readme-card {
+    .readme-card,
+    .project-card,
+    .contact-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
+    }
+
+    .readme-card {
       margin-bottom: 20px;
       overflow: hidden;
     }
+
     .readme-header {
       padding: 10px 16px;
       border-bottom: 1px solid var(--border);
@@ -164,29 +180,36 @@
       align-items: center;
       gap: 8px;
     }
-    .readme-header b { color: var(--accent); }
-    .readme-body { padding: 24px; }
+
+    .readme-header b {
+      color: var(--accent);
+    }
+
+    .readme-body {
+      padding: 24px;
+    }
+
     .readme-body h2 {
       font-family: 'Space Mono', monospace;
       font-size: 20px;
       color: var(--text);
       margin-bottom: 12px;
     }
+
     .readme-body p {
       font-size: 14px;
       color: var(--muted);
       line-height: 1.7;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .readme-body p b { color: var(--text); }
 
-    /* Highlight strip inside README */
     .highlight-strip {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 16px;
     }
+
     .hl-item {
       background: var(--tag-bg);
       border: 1px solid var(--border);
@@ -195,25 +218,34 @@
       font-size: 12px;
       font-family: 'Space Mono', monospace;
     }
-    .hl-item .hl-label { color: var(--muted); }
-    .hl-item .hl-val { color: var(--accent2); font-weight: 700; }
 
-    /* Projects grid */
+    .hl-item .hl-label {
+      color: var(--muted);
+    }
+
+    .hl-item .hl-val {
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
     .section-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
     }
+
     .section-header h3 {
       font-family: 'Space Mono', monospace;
       font-size: 14px;
       color: var(--text);
     }
+
     .section-header a {
       font-size: 12px;
       color: var(--accent);
       text-decoration: none;
+      font-family: 'Space Mono', monospace;
     }
 
     .projects-grid {
@@ -222,17 +254,19 @@
       gap: 12px;
       margin-bottom: 24px;
     }
+
     .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
       padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       transition: border-color .2s;
     }
-    .project-card:hover { border-color: var(--accent); }
+
+    .project-card:hover {
+      border-color: var(--accent);
+    }
+
     .project-title {
       font-family: 'Space Mono', monospace;
       font-size: 14px;
@@ -240,60 +274,51 @@
       text-decoration: none;
       font-weight: 700;
     }
+
+    .project-title:hover {
+      text-decoration: underline;
+    }
+
     .project-desc {
       font-size: 12px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.6;
       flex: 1;
     }
+
+    .project-image {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
     .project-footer {
       display: flex;
       align-items: center;
       gap: 12px;
       font-size: 12px;
       color: var(--muted);
+      flex-wrap: wrap;
     }
+
     .lang-dot {
-      width: 10px; height: 10px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       display: inline-block;
     }
 
-    /* Contributions bar (decorativo) */
-    .contrib-section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+    .contact-card {
       padding: 16px;
-      margin-bottom: 20px;
     }
-    .contrib-section p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 12px;
-      font-family: 'Space Mono', monospace;
-    }
-    .contrib-grid {
-      display: flex;
-      gap: 3px;
-      flex-wrap: wrap;
-    }
-    .contrib-cell {
-      width: 12px; height: 12px;
-      border-radius: 2px;
-      background: var(--tag-bg);
-    }
-    .contrib-cell.l1 { background: #0e4429; }
-    .contrib-cell.l2 { background: #006d32; }
-    .contrib-cell.l3 { background: #26a641; }
-    .contrib-cell.l4 { background: #39d353; }
 
-    /* Contact */
     .contact-strip {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     .contact-btn {
       display: inline-flex;
       align-items: center;
@@ -301,210 +326,213 @@
       background: var(--tag-bg);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 7px 14px;
+      padding: 8px 14px;
       font-size: 13px;
       color: var(--text);
       text-decoration: none;
       font-family: 'Space Mono', monospace;
       transition: border-color .2s, color .2s;
     }
-    .contact-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .contact-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
     @media (max-width: 720px) {
-      .layout { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .avatar-placeholder, .avatar-wrap { width: 140px; height: 140px; }
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .avatar-placeholder,
+      .avatar-wrap {
+        width: 140px;
+        height: 140px;
+      }
     }
   </style>
 </head>
 <body>
-<div class="layout">
+  <div class="layout">
 
-  <!-- ── SIDEBAR ── -->
-  <aside class="sidebar">
+    <aside class="sidebar">
 
-    <!-- FOTO PROFILO: sostituisci src con il link alla tua foto -->
-    <!-- <div class="avatar-wrap"><img src="foto.jpg" alt="foto"/></div> -->
-    <div class="avatar-placeholder">
-      <span>🧬</span>
-      [LA TUA FOTO<br>PROFILO]
-    </div>
-
-    <div class="name">Federico Tremolada</div>
-    <div class="handle">[username GitHub] · he/him</div>
-
-    <div class="bio">
-      <!-- Una frase che ti descrive. Es: "Biomedical engineering student @ PoliMi. Interested in structural analysis and medical devices." -->
-      [UNA FRASE CHE TI DESCRIVE — es. "Biomedical eng. student @ PoliMi. Focus on structural mechanics &amp; medical devices."]
-    </div>
-
-    <div class="meta">
-      <div class="meta-row">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88l6.5-3.81Z"/></svg>
-        [LA TUA EMAIL o link]
+      <!-- PER ORA LASCIA QUESTO PLACEHOLDER.
+           PIÙ AVANTI LO SOSTITUIREMO CON LA TUA FOTO -->
+      <div class="avatar-placeholder">
+        <span style="font-size:32px;">🧬</span>
+        PROFILE<br>PHOTO
       </div>
-      <div class="meta-row">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 2 2 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a2 2 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 2 2 0 0 0-2.83 0l-2.5 2.5a2.002 2.002 0 0 0 0 2.83Z"/></svg>
-        [LINK LINKEDIN o portfolio Notion]
+
+      <!-- QUANDO AVRAI CARICATO LA FOTO, USEREMO QUESTO BLOCCO AL POSTO DEL PLACEHOLDER -->
+      <!--
+      <div class="avatar-wrap">
+        <img src="images/profile.jpg" alt="Profile photo">
       </div>
-      <div class="meta-row">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0A6.5 6.5 0 0 0 1.5 8Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"/></svg>
-        Politecnico di Milano — LM Biomeccanica
+      -->
+
+      <div class="name">Federico Tremolada</div>
+      <div class="handle">@Federico-Tremolada</div>
+
+      <div class="bio">
+        MSc Biomedical Engineering student at Politecnico di Milano. Focused on biomechanics, finite element modeling, biomaterials, and engineering analysis for medical-device-oriented applications.
       </div>
-      <div class="meta-row">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        [LA TUA CITTÀ]
+
+      <div class="meta">
+        <div class="meta-row">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)">
+            <path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88l6.5-3.81Z"/>
+          </svg>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </div>
+
+        <div class="meta-row">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)">
+            <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 2 2 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a2 2 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 2 2 0 0 0-2.83 0l-2.5 2.5a2.002 2.002 0 0 0 0 2.83Z"/>
+          </svg>
+          <a href="https://github.com/Federico-Tremolada" target="_blank">GitHub Profile</a>
+        </div>
+
+        <div class="meta-row">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)">
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0A6.5 6.5 0 0 0 1.5 8Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"/>
+          </svg>
+          Politecnico di Milano — Biomechanics & Biomaterials
+        </div>
+
+        <div class="meta-row">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--muted)">
+            <path d="M8 8.5A1.5 1.5 0 1 0 8 5.5a1.5 1.5 0 0 0 0 3Zm0-8a5.5 5.5 0 0 1 5.5 5.5c0 3.336-2.718 6.14-4.922 8.192a.875.875 0 0 1-1.156 0C5.218 12.14 2.5 9.336 2.5 6A5.5 5.5 0 0 1 8 .5Z"/>
+          </svg>
+          Italy
+        </div>
       </div>
-    </div>
 
-    <div class="stats-row">
-      <span><b>[N]</b> follower</span>
-      <span><b>[N]</b> following</span>
-    </div>
-
-    <div class="section-title">Competenze tecniche</div>
-    <div class="skill-list">
-      <!-- Aggiungi/rimuovi i tuoi software e tool -->
-      <span class="skill-tag">ANSYS</span>
-      <span class="skill-tag">Abaqus</span>
-      <span class="skill-tag">SolidWorks</span>
-      <span class="skill-tag">MATLAB</span>
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">FEA</span>
-      <span class="skill-tag">ISO 13485</span>
-      <span class="skill-tag">EU MDR</span>
-      <span class="skill-tag">[ALTRO]</span>
-    </div>
-
-  </aside>
-
-  <!-- ── MAIN ── -->
-  <main class="main">
-
-    <!-- README card -->
-    <div class="readme-card">
-      <div class="readme-header">
-        📄 <b>[TUO USERNAME]</b> / README.md
+      <div class="section-title">Technical Skills</div>
+      <div class="skill-list">
+        <span class="skill-tag">Abaqus</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">SolidWorks</span>
+        <span class="skill-tag">FEBio</span>
+        <span class="skill-tag">Gmsh</span>
+        <span class="skill-tag">FEA</span>
+        <span class="skill-tag">Biomechanics</span>
+        <span class="skill-tag">Biomaterials</span>
+        <span class="skill-tag">Data Analysis</span>
       </div>
-      <div class="readme-body">
-        <h2>👋 Ciao, sono [NOME]</h2>
-        <p>
-          <!-- Descrizione estesa di te: cosa studi, cosa ti interessa, dove vuoi andare -->
-          [PRESENTAZIONE ESTESA — es. "Sono uno studente magistrale in Biomeccanica e Biomateriali al Politecnico di Milano. Mi occupo di analisi strutturale di dispositivi medici, modellazione FEM e materiali per applicazioni ortopediche."]
-        </p>
-        <p>
-          <!-- Obiettivo professionale -->
-          [OBIETTIVO — es. "Sto cercando opportunità in R&D o ingegneria regolatorio nel settore medtech. Disponibile per tesi in azienda o stage."]
-        </p>
 
-        <div class="highlight-strip">
-          <div class="hl-item">
-            <div class="hl-label">📍 Università</div>
-            <div class="hl-val">PoliMi</div>
+    </aside>
+
+    <main class="main">
+
+      <div class="readme-card">
+        <div class="readme-header">
+          📄 <b>Federico-Tremolada</b> / README.md
+        </div>
+        <div class="readme-body">
+          <h2>Hi, I'm Federico</h2>
+          <p>
+            I am an MSc Biomedical Engineering student at Politecnico di Milano, currently focused on biomechanics, finite element modeling, and computational analysis of musculoskeletal and bio-inspired systems.
+          </p>
+          <p>
+            My goal is to develop practical engineering projects that combine simulation, data processing, and physically meaningful interpretation, with growing interest in R&amp;D and medical-device-oriented applications.
+          </p>
+
+          <div class="highlight-strip">
+            <div class="hl-item">
+              <div class="hl-label">📍 University</div>
+              <div class="hl-val">PoliMi</div>
+            </div>
+            <div class="hl-item">
+              <div class="hl-label">🎓 Track</div>
+              <div class="hl-val">Biomechanics</div>
+            </div>
+            <div class="hl-item">
+              <div class="hl-label">🔬 Focus</div>
+              <div class="hl-val">FEM &amp; Biomaterials</div>
+            </div>
+            <div class="hl-item">
+              <div class="hl-label">🛠 Tools</div>
+              <div class="hl-val">Abaqus · MATLAB · Python</div>
+            </div>
           </div>
-          <div class="hl-item">
-            <div class="hl-label">🎓 Corso</div>
-            <div class="hl-val">LM Biomeccanica</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h3>Featured Projects</h3>
+        <a href="https://github.com/Federico-Tremolada" target="_blank">View GitHub →</a>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <a class="project-title" href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank">
+            Enthesis FEM Model
+          </a>
+
+          <!-- PIÙ AVANTI INSERIREMO QUI L'IMMAGINE DEL PROGETTO -->
+          <!--
+          <img class="project-image" src="images/enthesis-cover.png" alt="Enthesis FEM preview">
+          -->
+
+          <p class="project-desc">
+            Finite element study of the tendon-to-bone interface investigating how sharp and functionally graded material transitions affect stress distribution and elastic energy transfer. Developed with Abaqus, Python, and MATLAB.
+          </p>
+
+          <div class="project-footer">
+            <span class="lang-dot" style="background:#2b7489"></span>
+            Abaqus / Python / MATLAB
           </div>
-          <div class="hl-item">
-            <div class="hl-label">🔬 Area</div>
-            <div class="hl-val">[ES: Ortopedia / Cardiovascolare]</div>
+        </div>
+
+        <div class="project-card">
+          <a class="project-title" href="#">
+            SLA Resin Fatigue Testing
+          </a>
+          <p class="project-desc">
+            Mechanical characterization of 3D-printed biomaterial specimens under four-point bending and fatigue-oriented loading conditions. Project page coming soon.
+          </p>
+          <div class="project-footer">
+            <span class="lang-dot" style="background:#e34c26"></span>
+            Mechanical Testing / MATLAB
           </div>
-          <div class="hl-item">
-            <div class="hl-label">📅 Grad.</div>
-            <div class="hl-val">[ANNO PREVISTO]</div>
+        </div>
+
+        <div class="project-card">
+          <a class="project-title" href="#">
+            Biomechanical Data Analysis
+          </a>
+          <p class="project-desc">
+            Data-processing workflows for biomechanical experiments, including signal extraction, cycle selection, regression, and interpretation of experimental mechanical behavior.
+          </p>
+          <div class="project-footer">
+            <span class="lang-dot" style="background:#3572A5"></span>
+            MATLAB / Python
           </div>
         </div>
+
       </div>
-    </div>
 
-    <!-- Progetti -->
-    <div class="section-header">
-      <h3>📌 Progetti in evidenza</h3>
-      <a href="[LINK REPOSITORY]">Vedi tutti →</a>
-    </div>
-    <div class="projects-grid">
+      <div class="section-header">
+        <h3>Contact</h3>
+      </div>
 
-      <!-- PROGETTO 1 -->
-      <div class="project-card">
-        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 1]</a>
-        <p class="project-desc">
-          <!-- Es: "Analisi FEM di un fissatore spinale con Abaqus. Studio dei momenti flettenti e torcenti su struttura 3D multi-segmento." -->
-          [DESCRIZIONE BREVE — cosa hai fatto, con quale tool, per quale scopo]
-        </p>
-        <div class="project-footer">
-          <span class="lang-dot" style="background:#2b7489"></span>
-          [SOFTWARE / LINGUAGGIO — es. Abaqus / MATLAB]
+      <div class="contact-card">
+        <div class="contact-strip">
+          <a class="contact-btn" href="mailto:your.email@example.com">✉️ Email</a>
+          <a class="contact-btn" href="https://github.com/Federico-Tremolada" target="_blank">💻 GitHub</a>
+          <!-- QUANDO AVRAI LINKEDIN, AGGIUNGEREMO ANCHE IL BOTTONE -->
+          <!-- <a class="contact-btn" href="https://www.linkedin.com/in/your-linkedin/" target="_blank">💼 LinkedIn</a> -->
         </div>
       </div>
 
-      <!-- PROGETTO 2 -->
-      <div class="project-card">
-        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 2]</a>
-        <p class="project-desc">
-          [DESCRIZIONE BREVE]
-        </p>
-        <div class="project-footer">
-          <span class="lang-dot" style="background:#e34c26"></span>
-          [SOFTWARE / LINGUAGGIO]
-        </div>
-      </div>
-
-      <!-- PROGETTO 3 -->
-      <div class="project-card">
-        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 3]</a>
-        <p class="project-desc">
-          [DESCRIZIONE BREVE]
-        </p>
-        <div class="project-footer">
-          <span class="lang-dot" style="background:#3572A5"></span>
-          [SOFTWARE / LINGUAGGIO]
-        </div>
-      </div>
-
-      <!-- PROGETTO 4 -->
-      <div class="project-card">
-        <a class="project-title" href="[LINK REPO]">[NOME PROGETTO 4]</a>
-        <p class="project-desc">
-          [DESCRIZIONE BREVE]
-        </p>
-        <div class="project-footer">
-          <span class="lang-dot" style="background:#f1e05a"></span>
-          [SOFTWARE / LINGUAGGIO]
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Contribuzioni decorative -->
-    <div class="contrib-section">
-      <p>[N] contribuzioni nell'ultimo anno</p>
-      <div class="contrib-grid" id="grid"></div>
-    </div>
-
-    <!-- Contatti -->
-    <div class="section-header">
-      <h3>📬 Contatti</h3>
-    </div>
-    <div class="contact-strip">
-      <a class="contact-btn" href="mailto:[TUA EMAIL]">✉️ Email</a>
-      <a class="contact-btn" href="[LINK LINKEDIN]" target="_blank">💼 LinkedIn</a>
-      <a class="contact-btn" href="[LINK NOTION/PORTFOLIO]" target="_blank">📋 Portfolio</a>
-      <!-- Aggiungi altri link se vuoi (ResearchGate, Kaggle, ecc.) -->
-    </div>
-
-  </main>
-</div>
-
-<script>
-  // Genera griglia contribuzioni casuale (decorativa)
-  const grid = document.getElementById('grid');
-  const levels = ['','l1','l2','l3','l4'];
-  for (let i = 0; i < 364; i++) {
-    const cell = document.createElement('div');
-    cell.className = 'contrib-cell ' + levels[Math.floor(Math.random()*5)];
-    grid.appendChild(cell);
-  }
-</script>
+    </main>
+  </div>
 </body>
 </html>
