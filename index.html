@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Federico Tremolada | Biomedical Engineer</title>
+  <title>Federico Tremolada | GitHub-style Portfolio</title>
   <style>
     * {
       box-sizing: border-box;
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --title: #f0f6fc;
+      --accent: #58a6ff;
+      --green-1: #0e4429;
+      --green-2: #006d32;
+      --green-3: #26a641;
+      --green-4: #39d353;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -15,22 +31,49 @@
       background: #0f172a;
       color: #e2e8f0;
       line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
     }
 
     .container {
       max-width: 1000px;
       margin: auto;
       padding: 48px 24px;
+    .page {
+      width: min(1200px, 94%);
+      margin: 26px auto 48px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 24px;
     }
 
     .hero {
       padding: 40px 0 24px 0;
       border-bottom: 1px solid #334155;
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
     }
 
     .hero h1 {
       font-size: 42px;
       margin: 0 0 12px 0;
+    .avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #323b47 0%, #1d2430 40%, #111822 100%);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
     }
 
     .hero p {
@@ -38,6 +81,22 @@
       max-width: 700px;
       color: #cbd5e1;
       margin: 0 0 20px 0;
+    h1, h2, h3, p { margin: 0; }
+
+    .name { font-size: 28px; color: var(--title); margin-top: 14px; }
+    .username { font-size: 21px; color: var(--muted); margin-bottom: 3px; }
+    .bio { margin-top: 14px; font-size: 17px; }
+
+    .btn {
+      margin: 16px 0;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #21262d;
+      color: var(--text);
+      padding: 10px 12px;
+      text-align: center;
+      font-weight: 600;
     }
 
     .links a {
@@ -48,12 +107,18 @@
       text-decoration: none;
       font-weight: bold;
     }
+    .meta { color: var(--muted); font-size: 14px; display: grid; gap: 8px; }
+    .meta strong { color: var(--text); }
 
     h2 {
       margin-top: 44px;
       margin-bottom: 16px;
       color: #38bdf8;
       font-size: 28px;
+    .section-title {
+      color: var(--title);
+      font-size: 22px;
+      margin-bottom: 14px;
     }
 
     .card {
@@ -62,33 +127,78 @@
       border-radius: 14px;
       padding: 24px;
       margin-top: 16px;
+    .hero-title {
+      font-size: 34px;
+      line-height: 1.15;
+      color: var(--title);
+      margin-bottom: 12px;
     }
 
     .card h3 {
       margin-top: 0;
       margin-bottom: 12px;
       color: #f8fafc;
+    .hero-sub { color: var(--muted); margin-bottom: 16px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .chip {
+      border: 1px solid var(--border);
+      background: #21262d;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--text);
+      padding: 5px 10px;
     }
 
     .muted {
       color: #cbd5e1;
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
     }
 
     ul {
       padding-left: 22px;
+    .repo {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      background: #0f1520;
+      min-height: 145px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     li {
       margin-bottom: 10px;
+    .repo a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
     }
 
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
+    .repo p { color: var(--muted); font-size: 14px; }
+
+    .repo-meta {
+      margin-top: auto;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      gap: 12px;
+      align-items: center;
     }
 
     .tag {
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
       display: inline-block;
       background: #334155;
       color: #e2e8f0;
@@ -96,11 +206,18 @@
       border-radius: 999px;
       margin: 6px 8px 0 0;
       font-size: 14px;
+      margin-right: 6px;
+      background: #f1e05a;
     }
 
     a {
       color: #38bdf8;
       text-decoration: none;
+    .contrib-grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(26, 1fr);
+      gap: 5px;
     }
 
     .footer {
@@ -109,15 +226,32 @@
       border-top: 1px solid #334155;
       color: #94a3b8;
       font-size: 14px;
+    .cell {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 2px;
+      background: #161b22;
+      border: 1px solid #1b2330;
     }
 
     @media (max-width: 800px) {
       .grid {
+    .l1 { background: var(--green-1); }
+    .l2 { background: var(--green-2); }
+    .l3 { background: var(--green-3); }
+    .l4 { background: var(--green-4); }
+
+    .footer-note { margin-top: 10px; font-size: 13px; color: var(--muted); }
+
+    @media (max-width: 940px) {
+      .page {
         grid-template-columns: 1fr;
       }
 
       .hero h1 {
         font-size: 34px;
+      .project-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -178,6 +312,22 @@
         <span class="tag">Biomedical Engineering</span>
       </div>
     </section>
+  <main class="page">
+    <aside>
+      <section class="panel">
+        <div class="avatar">Aggiungi qui la tua foto profilo</div>
+        <h1 class="name">Federico Tremolada</h1>
+        <p class="username">@Federico-Tremolada</p>
+        <p class="bio">Biomedical Engineer • FEM • Biomechanics</p>
+        <div class="btn">Contatta</div>
+        <div class="meta">
+          <div><strong>Location:</strong> Milano, Italia</div>
+          <div><strong>Università:</strong> Politecnico di Milano</div>
+          <div><strong>Email:</strong> aggiorna-con-la-tua-email@example.com</div>
+          <div><strong>GitHub:</strong> <a href="https://github.com/Federico-Tremolada" target="_blank" rel="noopener">profilo</a></div>
+        </div>
+      </section>
+    </aside>
 
     <section>
       <h2>About</h2>
@@ -186,11 +336,18 @@
         <p>
           I am an MSc Biomedical Engineering student at Politecnico di Milano with a growing interest in
           biomechanical modeling, simulation-based design, and technical analysis for medical and bio-inspired systems.
+      <article class="panel">
+        <h2 class="hero-title">Ciao, sono Federico 👋</h2>
+        <p class="hero-sub">
+          Realizzo progetti di modellazione biomeccanica e analisi numerica, con focus su
+          interfacce muscolo-scheletriche, simulazioni FEM e interpretazione dei risultati.
         </p>
 
         <p>
           My current work focuses on building practical engineering projects that combine modeling, computation,
           and interpretation of physically meaningful results.
+          Questa pagina è pensata in stile GitHub Profile: puoi aggiornarla rapidamente con i tuoi
+          repository, risultati e link professionali.
         </p>
       </div>
     </section>
@@ -204,6 +361,12 @@
           <p class="muted">
             Signal processing and interpretation of mechanical testing data using MATLAB and Python.
           </p>
+        <div class="chips">
+          <span class="chip">Abaqus</span>
+          <span class="chip">MATLAB</span>
+          <span class="chip">Python</span>
+          <span class="chip">Biomechanics</span>
+          <span class="chip">Finite Element Modeling</span>
         </div>
 
         <div class="card">
@@ -211,8 +374,61 @@
           <p class="muted">
             Mechanical characterization and fatigue-oriented analysis of 3D-printed biomaterials.
           </p>
+      </article>
+
+      <article class="panel" style="margin-top: 16px;">
+        <h2 class="section-title">Progetti in evidenza</h2>
+        <div class="project-grid">
+          <div class="repo">
+            <a href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank" rel="noopener">enthesis-fem-model</a>
+            <p>
+              Studio FEM dell'interfaccia tendine-osso con materiali a gradiente funzionale e
+              confronto tra leggi di transizione (sharp, linear, exponential, power-law).
+            </p>
+            <div class="repo-meta"><span><span class="dot" style="background:#3572A5;"></span>Python</span><span>★ da aggiornare</span></div>
+          </div>
+
+          <div class="repo">
+            <a href="#">biomechanics-data-analysis</a>
+            <p>
+              Pipeline per post-processing di dati meccanici: estrazione feature, confronto curve
+              stress-strain e report automatici.
+            </p>
+            <div class="repo-meta"><span><span class="dot" style="background:#e16737;"></span>MATLAB</span><span>🚧 in sviluppo</span></div>
+          </div>
+
+          <div class="repo">
+            <a href="#">additive-biomaterials-testing</a>
+            <p>
+              Analisi sperimentale su materiali biomedicali stampati in 3D con test meccanici e
+              studio preliminare a fatica.
+            </p>
+            <div class="repo-meta"><span><span class="dot" style="background:#701516;"></span>Research</span><span>📄 work in progress</span></div>
+          </div>
+
+          <div class="repo">
+            <a href="#">portfolio-notes</a>
+            <p>
+              Raccolta di note tecniche, metodi, assunzioni di modello e mini-progetti da integrare
+              nei repository pubblici.
+            </p>
+            <div class="repo-meta"><span><span class="dot" style="background:#89e051;"></span>Markdown</span><span>✍️ continuo</span></div>
+          </div>
         </div>
       </div>
+      </article>
+
+      <article class="panel" style="margin-top: 16px;">
+        <h2 class="section-title">Contributi (demo visuale)</h2>
+        <p class="hero-sub">Griglia in stile GitHub: sostituisci con dati reali se vuoi integrare API o immagini SVG.</p>
+        <div class="contrib-grid" aria-label="contributions heatmap demo">
+          <span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span>
+          <span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span>
+          <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+          <span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell"></span><span class="cell l4"></span><span class="cell"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell l3"></span><span class="cell"></span><span class="cell"></span><span class="cell l1"></span><span class="cell"></span><span class="cell l2"></span><span class="cell"></span><span class="cell"></span><span class="cell l4"></span>
+        </div>
+        <p class="footer-note">Tip: puoi collegare un generatore di contribution graph SVG per mostrare i contributi reali.</p>
+      </article>
     </section>
 
     <div class="footer">
@@ -220,5 +436,6 @@
     </div>
 
   </div>
+  </main>
 </body>
 </html>
