@@ -1,79 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federico Tremolada | Biomedical Engineer</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-        h2 {
-            margin-top: 40px;
-            color: #38bdf8;
-        }
-        p {
-            line-height: 1.6;
-        }
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Federico Tremolada | Biomedical Engineer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 48px 24px;
+    }
+
+    .hero {
+      padding: 40px 0 24px 0;
+      border-bottom: 1px solid #334155;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin: 0 0 12px 0;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      color: #cbd5e1;
+      margin: 0 0 20px 0;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 18px;
+      margin-bottom: 10px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      color: #38bdf8;
+      font-size: 28px;
+    }
+
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #f8fafc;
+    }
+
+    .muted {
+      color: #cbd5e1;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #334155;
+      color: #e2e8f0;
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin: 6px 8px 0 0;
+      font-size: 14px;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #334155;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        
-        <h1>Federico Tremolada</h1>
-        <p>Biomedical Engineer | Biomechanics & FEM Modeling</p>
+  <div class="container">
 
-        <h2>Project</h2>
+    <section class="hero">
+      <h1>Federico Tremolada</h1>
+      <p>
+        Biomedical Engineer focused on biomechanics, finite element modeling,
+        and engineering analysis for musculoskeletal systems and medical-device-oriented applications.
+      </p>
 
-        <div class="card">
-            <h3>Enthesis FEM Model</h3>
-            <p>
-                Finite Element model of the tendon-to-bone interface (enthesis),
-                investigating stress distribution and elastic energy in graded materials.
-            </p>
+      <div class="links">
+        <a href="https://github.com/Federico-Tremolada" target="_blank">GitHub</a>
+        <a href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank">Main Project</a>
+      </div>
+    </section>
 
-            <p><b>Tools:</b> Abaqus, Python, MATLAB</p>
+    <section>
+      <h2>Featured Project</h2>
 
-            <p>
-                Results show that functionally graded materials significantly reduce
-                stress concentrations compared to sharp interfaces.
-            </p>
+      <div class="card">
+        <h3>Enthesis FEM Model — Stress and Energy Distribution in Functionally Graded Interfaces</h3>
 
-            <p>
-                <a href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank">
-                    View Project on GitHub →
-                </a>
-            </p>
-        </div>
-
-        <h2>About</h2>
-        <p>
-            MSc Biomedical Engineering student at Politecnico di Milano,
-            focused on biomechanics, finite element modeling, and data analysis.
+        <p class="muted">
+          A finite element study of the tendon-to-bone interface (enthesis),
+          developed to investigate how different material transition laws affect
+          stress transfer and elastic energy distribution.
         </p>
 
+        <ul>
+          <li><strong>Problem:</strong> sharp material transitions generate stress concentrations and may reduce structural efficiency.</li>
+          <li><strong>Method:</strong> 2D FEM models developed in Abaqus and compared across sharp, linear, exponential, and power-law material gradients.</li>
+          <li><strong>Post-processing:</strong> Python and MATLAB workflows used to extract S11 profiles, von Mises stress, and elastic energy indicators.</li>
+          <li><strong>Main result:</strong> functionally graded configurations reduced stress concentration compared with the sharp interface, with power-law solutions emerging as the most effective compromise.</li>
+        </ul>
+
+        <p>
+          <a href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank">
+            View repository →
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Profile</h2>
+
+      <div class="card">
+        <span class="tag">Biomechanics</span>
+        <span class="tag">Finite Element Modeling</span>
+        <span class="tag">Abaqus</span>
+        <span class="tag">Python</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Biomedical Engineering</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>About</h2>
+
+      <div class="card">
+        <p>
+          I am an MSc Biomedical Engineering student at Politecnico di Milano with a growing interest in
+          biomechanical modeling, simulation-based design, and technical analysis for medical and bio-inspired systems.
+        </p>
+
+        <p>
+          My current work focuses on building practical engineering projects that combine modeling, computation,
+          and interpretation of physically meaningful results.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Next Projects</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Biomechanical Data Analysis</h3>
+          <p class="muted">
+            Signal processing and interpretation of mechanical testing data using MATLAB and Python.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Additive Manufacturing Testing</h3>
+          <p class="muted">
+            Mechanical characterization and fatigue-oriented analysis of 3D-printed biomaterials.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Built with GitHub Pages.
     </div>
+
+  </div>
 </body>
 </html>
