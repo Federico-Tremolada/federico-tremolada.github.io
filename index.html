@@ -32,7 +32,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -163,7 +162,7 @@
       object-fit: cover;
       object-position: 50% 30%;
     }
-  
+
     .status-dot {
       position: absolute;
       right: 28px;
@@ -263,29 +262,93 @@
       flex: 0 0 18px;
     }
 
-    .achievement-list {
+    .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 8px;
     }
 
-    .achievement {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(88,166,255,0.08);
+      border: 1px solid rgba(88,166,255,0.22);
+      color: #c8e1ff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .language-summary {
+      margin-bottom: 14px;
+    }
+
+    .language-bar {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      background: #0b1015;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 14px;
+    }
+
+    .language-segment {
+      height: 100%;
+    }
+
+    .seg-python { background: #3572A5; }
+    .seg-matlab { background: #e16737; }
+    .seg-html { background: #e34c26; }
+    .seg-css { background: #663399; }
+    .seg-latex { background: #008080; }
+
+    .language-list {
       display: grid;
-      place-items: center;
-      font-size: 12px;
-      font-weight: 800;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: inset 0 0 18px rgba(255,255,255,0.08);
+      gap: 10px;
     }
 
-    .ach-1 { background: linear-gradient(135deg, #5c4dff, #917dff); }
-    .ach-2 { background: linear-gradient(135deg, #1888ff, #5bc0ff); }
-    .ach-3 { background: linear-gradient(135deg, #f38d38, #ffcc70); }
-    .ach-4 { background: linear-gradient(135deg, #1da84d, #7ee787); }
+    .language-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .language-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 95px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .language-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .language-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .language-fill {
+      height: 100%;
+      border-radius: 999px;
+    }
 
     .main {
       display: grid;
@@ -457,26 +520,6 @@
       margin-bottom: 10px;
     }
 
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(88,166,255,0.08);
-      border: 1px solid rgba(88,166,255,0.22);
-      color: #c8e1ff;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -537,7 +580,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 110px;
+      min-height: 124px;
       text-align: center;
       transition: 0.18s ease;
     }
@@ -549,18 +592,29 @@
     }
 
     .software-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: #0f141b;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.06);
       display: grid;
       place-items: center;
       font-size: 22px;
       font-weight: 800;
-      color: var(--text);
-      box-shadow: inset 0 0 18px rgba(255,255,255,0.03);
+      color: #ffffff;
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.05);
+      letter-spacing: -0.02em;
     }
+
+    .software-icon.python { background: linear-gradient(135deg, #3776ab, #ffd343); color: #111827; }
+    .software-icon.matlab { background: linear-gradient(135deg, #f36f21, #f9b233); }
+    .software-icon.solidworks { background: linear-gradient(135deg, #e2231a, #ff7d6b); }
+    .software-icon.latex { background: linear-gradient(135deg, #008080, #0fa3a3); }
+    .software-icon.abaqus { background: linear-gradient(135deg, #5b21b6, #8b5cf6); }
+    .software-icon.febio { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+    .software-icon.gmsh { background: linear-gradient(135deg, #1d4ed8, #60a5fa); }
+    .software-icon.visualize { background: linear-gradient(135deg, #7c3aed, #c084fc); }
+    .software-icon.excel { background: linear-gradient(135deg, #107c41, #34d399); }
+    .software-icon.word { background: linear-gradient(135deg, #185abd, #60a5fa); }
 
     .software-name {
       font-size: 13px;
@@ -682,147 +736,6 @@
       font-size: 14px;
     }
 
-    .contrib-panel {
-      padding: 18px;
-    }
-
-    .months {
-      display: grid;
-      grid-template-columns: 30px repeat(12, 1fr);
-      gap: 8px;
-      margin-bottom: 10px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .months span:first-child { visibility: hidden; }
-
-    .contrib-wrap {
-      display: grid;
-      grid-template-columns: 30px 1fr;
-      gap: 8px;
-      align-items: start;
-      overflow-x: auto;
-    }
-
-    .days {
-      display: grid;
-      grid-template-rows: repeat(7, 12px);
-      gap: 4px;
-      color: var(--muted);
-      font-size: 11px;
-      padding-top: 1px;
-    }
-
-    .days span {
-      height: 12px;
-      display: flex;
-      align-items: center;
-    }
-
-    .heatmap {
-      display: grid;
-      grid-template-columns: repeat(53, 12px);
-      gap: 4px;
-      min-width: 844px;
-    }
-
-    .cell {
-      width: 12px;
-      height: 12px;
-      border-radius: 2px;
-      background: var(--ok-0);
-    }
-
-    .l0 { background: var(--ok-0); }
-    .l1 { background: var(--ok-1); }
-    .l2 { background: var(--ok-2); }
-    .l3 { background: var(--ok-3); }
-    .l4 { background: var(--ok-4); }
-
-    .legend-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-top: 14px;
-      flex-wrap: wrap;
-    }
-
-    .legend {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .legend-boxes {
-      display: flex;
-      gap: 4px;
-    }
-
-    .legend-box {
-      width: 12px;
-      height: 12px;
-      border-radius: 2px;
-    }
-
-    .activity-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .activity-box {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      border-radius: 14px;
-      padding: 18px;
-    }
-
-    .activity-box h3 {
-      font-size: 15px;
-      margin-bottom: 14px;
-    }
-
-    .chart-placeholder {
-      height: 230px;
-      border-radius: 12px;
-      border: 1px dashed rgba(255,255,255,0.12);
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px) 0 0 / 40px 40px,
-        linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px) 0 0 / 40px 40px,
-        #0b1015;
-    }
-
-    .chart-line {
-      position: absolute;
-      left: 4%;
-      right: 4%;
-      bottom: 14%;
-      top: 14%;
-    }
-
-    .chart-line svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .radar-placeholder {
-      height: 230px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      border: 1px dashed rgba(255,255,255,0.12);
-      background: #0b1015;
-      color: var(--muted);
-      text-align: center;
-      padding: 20px;
-    }
-
     .cta-row {
       display: flex;
       flex-wrap: wrap;
@@ -871,7 +784,6 @@
       .sidebar { position: static; }
       .hero-grid,
       .about-grid,
-      .activity-grid,
       .repo-grid { grid-template-columns: 1fr; }
       .hero-banner { height: 220px; }
       .name { font-size: 28px; }
@@ -904,8 +816,8 @@
       <nav class="nav">
         <a href="#overview" class="active">Overview</a>
         <a href="#about">About</a>
-        <a href="#software">Software</a>
         <a href="#projects">Projects</a>
+        <a href="#software">Software</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -955,6 +867,47 @@
             <span class="tag">Biomechanics</span>
             <span class="tag">Biomaterials</span>
             <span class="tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Languages</h3>
+          <div class="language-summary">
+            <div class="language-bar" aria-label="Portfolio languages distribution">
+              <span class="language-segment seg-python" style="width: 36%"></span>
+              <span class="language-segment seg-matlab" style="width: 28%"></span>
+              <span class="language-segment seg-html" style="width: 18%"></span>
+              <span class="language-segment seg-css" style="width: 10%"></span>
+              <span class="language-segment seg-latex" style="width: 8%"></span>
+            </div>
+          </div>
+
+          <div class="language-list">
+            <div class="language-item">
+              <div class="language-left"><span class="language-dot seg-python"></span>Python</div>
+              <div class="language-track"><div class="language-fill seg-python" style="width: 36%"></div></div>
+              <span>36%</span>
+            </div>
+            <div class="language-item">
+              <div class="language-left"><span class="language-dot seg-matlab"></span>MATLAB</div>
+              <div class="language-track"><div class="language-fill seg-matlab" style="width: 28%"></div></div>
+              <span>28%</span>
+            </div>
+            <div class="language-item">
+              <div class="language-left"><span class="language-dot seg-html"></span>HTML</div>
+              <div class="language-track"><div class="language-fill seg-html" style="width: 18%"></div></div>
+              <span>18%</span>
+            </div>
+            <div class="language-item">
+              <div class="language-left"><span class="language-dot seg-css"></span>CSS</div>
+              <div class="language-track"><div class="language-fill seg-css" style="width: 10%"></div></div>
+              <span>10%</span>
+            </div>
+            <div class="language-item">
+              <div class="language-left"><span class="language-dot seg-latex"></span>LaTeX</div>
+              <div class="language-track"><div class="language-fill seg-latex" style="width: 8%"></div></div>
+              <span>8%</span>
+            </div>
           </div>
         </div>
       </aside>
@@ -1035,111 +988,6 @@
           </div>
         </section>
 
-        <section class="section card">
-          <div class="section-title">
-            <div>
-              <h2>Quick statistics</h2>
-              <p>Short summary of the current portfolio direction</p>
-            </div>
-          </div>
-
-          <div class="stats-grid">
-            <div class="stat-box">
-              <div class="label">Main project</div>
-              <div class="value">01</div>
-              <div class="note">Completed and portfolio-ready</div>
-            </div>
-            <div class="stat-box">
-              <div class="label">In progress</div>
-              <div class="value">02</div>
-              <div class="note">Projects being structured for publication</div>
-            </div>
-            <div class="stat-box">
-              <div class="label">Core tools</div>
-              <div class="value">06</div>
-              <div class="note">Simulation, CAD, scripting, analysis</div>
-            </div>
-            <div class="stat-box">
-              <div class="label">Target</div>
-              <div class="value">R&amp;D</div>
-              <div class="note">Biomechanics and medical-device development</div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section card" id="software">
-          <div class="section-title">
-            <div>
-              <h2>Software & technical stack</h2>
-              <p>Main tools currently used across modeling, analysis, design, and technical writing</p>
-            </div>
-          </div>
-
-          <div class="software-groups">
-            <div class="software-group">
-              <h3>Simulation & analysis</h3>
-              <div class="software-grid">
-                <div class="software-card">
-                  <div class="software-icon">Aq</div>
-                  <div class="software-name">Abaqus</div>
-                  <div class="software-note">FEM modeling and post-processing</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">Fe</div>
-                  <div class="software-name">FEBio</div>
-                  <div class="software-note">Biomechanical simulations</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">Gs</div>
-                  <div class="software-name">Gmsh</div>
-                  <div class="software-note">Mesh generation</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">Py</div>
-                  <div class="software-name">Python</div>
-                  <div class="software-note">Automation and data extraction</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">M</div>
-                  <div class="software-name">MATLAB</div>
-                  <div class="software-note">Signal analysis and plotting</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="software-group">
-              <h3>Design & technical communication</h3>
-              <div class="software-grid">
-                <div class="software-card">
-                  <div class="software-icon">Sw</div>
-                  <div class="software-name">SolidWorks</div>
-                  <div class="software-note">CAD design and modeling</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">V</div>
-                  <div class="software-name">Visualize</div>
-                  <div class="software-note">Concept rendering</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">Ex</div>
-                  <div class="software-name">Excel</div>
-                  <div class="software-note">Calculation sheets and test planning</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">W</div>
-                  <div class="software-name">Word</div>
-                  <div class="software-note">Reports and thesis formatting</div>
-                </div>
-                <div class="software-card">
-                  <div class="software-icon">Tx</div>
-                  <div class="software-name">LaTeX</div>
-                  <div class="software-note">Paper writing and journal templates</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section class="section card" id="projects">
           <div class="section-title">
             <div>
@@ -1154,9 +1002,9 @@
                 <a class="repo-name" href="https://github.com/Federico-Tremolada/enthesis-fem-model" target="_blank">enthesis-fem-model</a>
                 <div class="repo-visibility">Public</div>
               </div>
-              
-                <img src="images/enthesis-project.jpg" alt="Enthesis FEM project preview" style="width:100%; border-radius:12px; border:1px solid var(--border); margin-top:4px; margin-bottom:2px;">
-              
+
+              <img src="images/enthesis-project.jpg" alt="Enthesis FEM project preview" style="width:100%; border-radius:12px; border:1px solid var(--border); margin-top:4px; margin-bottom:2px;">
+
               <p class="repo-desc">
                 Finite Element model of the tendon-to-bone interface (enthesis) developed in Abaqus. The project investigates how different material transition laws—sharp, linear, exponential, and power-law—affect stress distribution (S11) and elastic energy transfer (SENER). Post-processing was carried out with Python and MATLAB to extract interface data, compare configurations, and identify the most effective graded solution.
               </p>
@@ -1230,6 +1078,123 @@
                 <span>Future portfolio section</span>
               </div>
             </article>
+          </div>
+        </section>
+
+        <section class="section card">
+          <div class="section-title">
+            <div>
+              <h2>Quick statistics</h2>
+              <p>Short summary of the current portfolio direction</p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <div class="label">Main project</div>
+              <div class="value">01</div>
+              <div class="note">Completed and portfolio-ready</div>
+            </div>
+            <div class="stat-box">
+              <div class="label">In progress</div>
+              <div class="value">02</div>
+              <div class="note">Projects being structured for publication</div>
+            </div>
+            <div class="stat-box">
+              <div class="label">Core tools</div>
+              <div class="value">10</div>
+              <div class="note">Simulation, CAD, scripting, analysis, writing</div>
+            </div>
+            <div class="stat-box">
+              <div class="label">Target</div>
+              <div class="value">R&amp;D</div>
+              <div class="note">Biomechanics and medical-device development</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section card" id="software">
+          <div class="section-title">
+            <div>
+              <h2>Software & technical stack</h2>
+              <p>Main tools currently used across modeling, analysis, design, and technical writing</p>
+            </div>
+          </div>
+
+          <div class="software-groups">
+            <div class="software-group">
+              <h3>Simulation & analysis</h3>
+              <div class="software-grid">
+                <div class="software-card">
+                  <div class="software-icon abaqus">Ab</div>
+                  <div class="software-name">Abaqus</div>
+                  <div class="software-note">FEM modeling and post-processing</div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon febio">Fe</div>
+                  <div class="software-name">FEBio</div>
+                  <div class="software-note">Biomechanical simulations</div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon gmsh">Gs</div>
+                  <div class="software-name">Gmsh</div>
+                  <div class="software-note">Mesh generation</div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon python">Py</div>
+                  <div class="software-name">Python</div>
+  <div class="software-note">Automation and data extraction</div>
+  <div style="margin-top:6px; display:flex; justify-content:center;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="width:24px;height:24px;" />
+  </div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon matlab">M</div>
+                  <div class="software-name">MATLAB</div>
+  <div class="software-note">Signal analysis and plotting</div>
+  <div style="margin-top:6px; display:flex; justify-content:center;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" style="width:24px;height:24px;" />
+  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="software-group">
+              <h3>Design & technical communication</h3>
+              <div class="software-grid">
+                <div class="software-card">
+                  <div class="software-icon solidworks">SW</div>
+                  <div class="software-name">SolidWorks</div>
+  <div class="software-note">CAD design and modeling</div>
+  <div style="margin-top:6px; display:flex; justify-content:center;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidworks/solidworks-original.svg" style="width:24px;height:24px;" />
+  </div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon visualize">Vz</div>
+                  <div class="software-name">Visualize</div>
+                  <div class="software-note">Concept rendering</div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon excel">X</div>
+                  <div class="software-name">Excel</div>
+                  <div class="software-note">Calculation sheets and test planning</div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon word">W</div>
+                  <div class="software-name">Word</div>
+                  <div class="software-note">Reports and thesis formatting</div>
+                </div>
+                <div class="software-card">
+                  <div class="software-icon latex">Tx</div>
+                  <div class="software-name">LaTeX</div>
+  <div class="software-note">Paper writing and journal templates</div>
+  <div style="margin-top:6px; display:flex; justify-content:center;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" style="width:24px;height:24px;" />
+  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
